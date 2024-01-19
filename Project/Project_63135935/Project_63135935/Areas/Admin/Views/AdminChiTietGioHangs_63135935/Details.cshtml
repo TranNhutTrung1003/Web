@@ -1,0 +1,86 @@
+﻿@model Project_63135935.Models.ChiTietGioHang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    p a {
+        color: white;
+        padding: 6px 12px;
+        margin: 0px 5px;
+        background-color: #4e73df;
+    }
+</style>
+
+<div class="container-fluid">
+    <h3 class="my-4 text-center">THÔNG TIN CHI TIẾT</h3>
+
+    <div style="font-size:18px; align-items: center" class="d-sm-block d-md-flex">
+        <div>
+            <table cellpadding="10">
+                <tr>
+                    <th>
+                        <h4>Thông tin khách hàng đặt</h4>
+                    </th>
+                </tr>
+                <tr>
+                    <td>Tên Khách Hàng:</td>
+                    <td>
+                        @Html.DisplayFor(model => model.GioHang.KhachHang.HoKH)
+                        @Html.DisplayFor(model => model.GioHang.KhachHang.TenKH)
+                    </td>
+                <tr>
+                    <td>Địa Chỉ giao hàng:</td>
+                    <td>@Html.DisplayFor(model => model.GioHang.Diachigiaohang)</td>
+                </tr>
+                <tr>
+                    <td>Số Điện Thoại:</td>
+                    <td>@Html.DisplayFor(model => model.GioHang.Sodt)</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>@Html.DisplayFor(model => model.GioHang.Email)</td>
+                </tr>
+                <tr>
+                    <th>
+                        <h4>Thông tin nhân viên shipper</h4>
+                    </th>
+                </tr>
+                <tr>
+                    <td>Tên Shipper:</td>
+                    <td>@Html.DisplayFor(model => model.GioHang.NhanVien.TenNV)</td>
+                </tr>
+                <tr>
+                    <th>
+                        <h4>Thông tin sản phẩm được đặt</h4>
+                    </th>
+                </tr>
+                <tr>
+                    <td>Tên Sản Phẩm:</td>
+                    <td>@Html.DisplayFor(model => model.Sach.TenSach)</td>
+                </tr>
+                <tr>
+                    <td>Thể Loại:</td>
+                    <td>@Html.DisplayFor(model => model.Sach.LoaiSach.TenLoaiSach)</td>
+                </tr>
+                <tr>
+                    <td>ngày đặt hàng:</td>
+                    <td>@Html.DisplayFor(model => model.GioHang.NgayDat)</td>
+                </tr>
+                <tr>
+                    <td>Số lượng:</td>
+                    <td>@Html.DisplayFor(model => model.SoLuong)</td>
+                </tr>
+                <tr>
+                    <td>Tổng tiền:</td>
+                    <td>@Html.DisplayFor(model => model.ThanhTien)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <p class="my-4 d-sm-flex justify-content-center">
+        @Html.ActionLink("Quay lại", "Index")
+    </p>
+</div>

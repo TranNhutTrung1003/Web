@@ -1,0 +1,140 @@
+﻿@model IEnumerable<Project_63135935.Models.KhachHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var grid = new WebGrid(Model, canPage: true, defaultSort: "MaKH", rowsPerPage: 10);
+}
+
+<head>
+    <style>
+        .btn_create {
+            display: inline-block;
+            max-width: 200px;
+            background-color: lightskyblue;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+            .btn_create a {
+                color: #4e73df !important;
+                text-decoration: none;
+            }
+
+                .btn_create a:hover {
+                    color: white !important;
+                }
+
+        a:hover, a {
+            text-decoration: none !important;
+        }
+
+        form {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-event {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0px 20px 0px;
+        }
+
+        .grid-footer {
+            color: #000;
+            font: 17px Calibri;
+            text-align: center;
+            font-weight: bold;
+        }
+
+            .grid-footer a {
+                background-color: #ffffff;
+                color: blue !important;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                padding: 1px 10px 2px 10px;
+            }
+
+                .grid-footer a:active, a:hover {
+                    color: #FFAD33;
+                }
+
+        .alternatingRowStyle {
+            background-color: aliceblue;
+        }
+
+        table .table1 {
+            text-align: left;
+            margin-left: 0px;
+            margin-right: 0px;
+            width: 800px;
+        }
+
+        table td {
+            text-align: center;
+        }
+
+        th a {
+            color: dodgerblue !important;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        .gridContent abbr[data-original-title], abbr[title] {
+            cursor: pointer !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <h2 style="text-align: center">DANH SÁCH KHÁCH HÀNG</h2>
+        <div class="btn-event">
+
+            @using (Html.BeginForm("Index", "AdminKhachHangs_63135935", FormMethod.Post, new { @class = "form-inline mr-auto ml-md-3 my-2 my-md-0 w-100 navbar-search" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="text" name="tenKH" value="@ViewBag.tenKH" placeholder="search for..." class="form-control bg-light border-1 small w-50 mx-3" />
+                <input type="submit" name="submit" value="tìm kiếm" style="background-color: blue;color:white" class="col-1" />
+            }
+        </div>
+
+        <div id="gridContent">
+            @ViewBag.TB
+            @grid.GetHtml(
+                tableStyle: "table table-bordered table-hover",
+                footerStyle: "grid-footer",
+                fillEmptyRows: true,
+                mode: WebGridPagerModes.Numeric,
+                alternatingRowStyle: "alternatingRowStyle",
+                  columns: new[]  // colums in grid
+                 {
+            grid.Column("MaKH","Mã Khách Hàng"), //the model fields to display
+            grid.Column("HoKH","Họ Khách Hàng"  ),
+            grid.Column("TenKH","Tên Khách Hàng"),
+            grid.Column("DiaChi","Địa Chỉ"),
+            grid.Column("SoDT","Số Điện Thoại"),
+grid.Column("GioiTinh","Giới tính",format: (@item) => @item.GioiTinh==true?"Nam":"Nữ"),
+grid.Column("Email", "Email Đăng Nhập"),
+grid.Column("Matkhau","Mật Khẩu"),
+grid.Column("Chức năng", format: @<text>
+    <a href="@Url.Action("Details",
+                    new { id = item.MaKH})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/details.png" width="20" height="20" /></abbr></a>
+    <a href="@Url.Action("Delete",
+                    new { id = item.MaKH})" class="edit-btn">
+        <abbr title="Xóa dữ liệu">
+            <img src="/images/delete.png" width="20" height="20" />
+        </abbr>
+    </a>
+</text>),
+
+}
+)
+        </div>
+    </div>
+
+</body>

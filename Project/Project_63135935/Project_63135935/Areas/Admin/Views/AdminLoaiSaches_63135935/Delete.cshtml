@@ -1,0 +1,40 @@
+﻿@model Project_63135935.Models.LoaiSach
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .form-actions a {
+        background-color: #4e73df;
+        padding: 6px 12px;
+    }
+</style>
+
+<div class="container-fluid">
+    <h3 class="my-4">Bạn có chắc chắn xóa loại sách này?</h3>
+
+    <div style="font-size:18px; align-items: center" class="d-sm-block d-md-flex">
+        <div>
+            <table cellpadding="10">
+                <tr>
+                    <td>Mã Nhân Viên:</td>
+                    <td>@Html.DisplayFor(model => model.MaLoaiSach)</td>
+                <tr>
+                    <td>Họ Nhân Viên:</td>
+                    <td>@Html.DisplayFor(model => model.TenLoaiSach)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions text-white d-sm-flex justify-content-center">
+            <input type="submit" value="Delete" class="btn btn-default btn-primary" /> |
+            @Html.ActionLink("Quay Lại", "Index")
+        </div>
+    }
+</div>

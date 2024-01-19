@@ -1,0 +1,80 @@
+﻿@model Project_63135935.Models.NhanVien
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var gtinh = "";
+}
+
+<style>
+    .form-actions a {
+        background-color: #4e73df;
+        padding: 6px 12px;
+    }
+</style>
+
+<div class="container-fluid">
+    <h3 class="my-4">Bạn có chắc chắn xóa khách hàng này?</h3>
+
+    <div style="font-size:18px; align-items: center" class="d-sm-block d-md-flex">
+        <div>
+            <table cellpadding="10">
+                <tr>
+                    <td>Mã Nhân Viên:</td>
+                    <td>@Html.DisplayFor(model => model.MaNV)</td>
+                <tr>
+                    <td>Họ Nhân Viên:</td>
+                    <td>@Html.DisplayFor(model => model.HoNV)</td>
+                </tr>
+                <tr>
+                    <td>Tên Nhân Viên:</td>
+                    <td>@Html.DisplayFor(model => model.TenNV)</td>
+                </tr>
+                <tr>
+                    <td>Giới tính:</td>
+                    <td>
+                        @{if (Model.GioiTinh == true)
+                            { gtinh = "Nam"; }
+                            else
+                            { gtinh = "Nữ"; }
+                        }
+                        @gtinh
+                    </td>
+                </tr>
+                <tr>
+                    <td>Số Điện Thoại:</td>
+                    <td>@Html.DisplayFor(model => model.SoDT)</td>
+                </tr>
+                <tr>
+                    <td>Ngày Sinh:</td>
+                    <td>@Html.DisplayFor(model => model.ngaysinh)</td>
+                </tr>
+                <tr>
+                    <td>Địa Chỉ:</td>
+                    <td>@Html.DisplayFor(model => model.DiaChi)</td>
+                </tr>
+                <tr>
+                    <td>Email Đăng Nhập:</td>
+                    <td>@Html.DisplayFor(model => model.Email)</td>
+                </tr>
+                <tr>
+                    <td>Mật Khẩu:</td>
+                    <td>@Html.DisplayFor(model => model.Matkhau)</td>
+                </tr>
+                <tr>
+                    <td>Chức Vụ:</td>
+                    <td>@Html.DisplayFor(model => model.Chucvu.tenchucvu)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions text-white d-sm-flex justify-content-center">
+            <input type="submit" value="Delete" class="btn btn-default btn-primary" /> |
+            @Html.ActionLink("Quay Lại", "Index")
+        </div>
+    }
+</div>

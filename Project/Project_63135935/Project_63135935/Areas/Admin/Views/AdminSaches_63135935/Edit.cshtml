@@ -1,0 +1,132 @@
+﻿@model Project_63135935.Models.Sach
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+                $(function ()
+                {
+                    var fileupload = $("#Avatar");
+                    var image = $("#FileUpload");
+                    image.click(function ()
+                    {
+                        fileupload.click();
+                    });
+                    fileupload.change(function ()
+                    {
+                        var fileName = $(this).val().split('\\')[$(this).val().split('\\').length - 1];
+                        document.getElementById("AnhSach").value=fileName;
+                    });
+                });
+    </script>
+}
+
+<style>
+    textarea {
+        width: 100%;
+        max-height: 500px;
+    }
+
+    .btn-event a {
+        color: white;
+        padding: 6px 12px;
+        margin: 0px 10px;
+        background-color: #4e73df;
+    }
+</style>
+
+<h3>Chỉnh sửa thông tin sản phẩm</h3>
+
+@using (Html.BeginForm("Edit", "AdminSaches_63135935", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaSach)
+
+        <div class="form-group d-sm-block d-md-flex">
+            @Html.LabelFor(model => model.MaSach, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaSach, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.MaSach, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group d-sm-block d-md-flex">
+            @Html.LabelFor(model => model.MaLoaiSach, "MaLoaiSach", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MaLoaiSach", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaLoaiSach, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group d-sm-block d-md-flex">
+            @Html.LabelFor(model => model.TenSach, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenSach, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenSach, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group d-sm-block d-md-flex">
+            @Html.LabelFor(model => model.AnhSach, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AnhSach, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AnhSach, "", new { @class = "text-danger" })
+                <input type="file" name="Avatar" id="Avatar" style="padding: 5px 0px" />
+            </div>
+        </div>
+
+        <div class="form-group d-sm-block d-md-flex">
+            @Html.LabelFor(model => model.DonGia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DonGia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DonGia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group d-sm-block d-md-flex">
+            @Html.LabelFor(model => model.TacGia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TacGia, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TacGia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group d-sm-block d-md-flex">
+            @Html.LabelFor(model => model.NhaXuatBan, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NhaXuatBan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NhaXuatBan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group d-sm-block d-md-flex">
+            @Html.LabelFor(model => model.Mota, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" }, rows = "6" })
+                @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group d-sm-block d-md-flex">
+            @Html.LabelFor(model => model.NgayXuatBan, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NgayXuatBan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NgayXuatBan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group d-sm-block d-md-flex" style="justify-content: center; align-items: center">
+            <div class="col-md-offset-2">
+                <input type="submit" value="Lưu" class="btn btn-default btn-primary" />
+            </div>
+            <div class="btn-event">
+                @Html.ActionLink("Quay Lại", "Index")
+            </div>
+        </div>
+    </div>
+}

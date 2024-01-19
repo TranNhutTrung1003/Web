@@ -1,0 +1,37 @@
+﻿
+
+<nav id="tg-nav" class="tg-nav">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tg-navigation" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div id="tg-navigation" class="collapse navbar-collapse tg-navigation">
+        <ul>
+            <li class="menu-item-has-children menu-item-has-mega-menu">
+                <a href="javascript:void(0);">All Categories</a>
+                <div class="mega-menu" style="width: 230px">
+                    <ul class="tg-themetabnav" role="tablist">
+                        <li role="presentation">
+                            <a href="@Url.Action("ShowBooksByCategory", "Saches_63135935", new { idcategory = "MLS001" })" aria-controls="artandphotography" role="tab" data-toggle="tab">Tiếng Anh</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="@Url.Action("ShowBooksByCategory", "Saches_63135935", new { idcategory = "MLS002" })" aria-controls="artandphotography" role="tab" data-toggle="tab">Tiểu thuyết Tình Cảm</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="@Url.Action("ShowBooksByCategory", "Saches_63135935", new { idcategory = "MLS003" })" aria-controls="artandphotography" role="tab" data-toggle="tab">Khoa Học Viễn Tưởng</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Saches_63135935")">Home</a>
+            </li>
+            <li><a href="@Url.Action("Contact", "Saches_63135935")">Contact</a></li>
+            <li><a href="@Url.Action("Aboutus", "Saches_63135935")">About Us</a></li>
+        </ul>
+    </div>
+</nav>

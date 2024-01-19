@@ -1,0 +1,63 @@
+﻿@model Project_63135935.Models.Sach
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .form-actions a {
+        background-color: #4e73df;
+        padding: 6px 12px;
+    }
+</style>
+
+<div class="container-fluid">
+    <h3 class="my-4">Bạn có chắc chắn xóa cuốn sách này?</h3>
+
+    <div style="font-size:18px; align-items: center" class="d-sm-block d-md-flex">
+        <div class="p-3">
+            <img src="/Images/@Html.DisplayFor(model => model.AnhSach)" width="200" height="300" />
+        </div>
+        <div>
+            <table cellpadding="10">
+                <tr>
+                    <td>Mã Sách:</td>
+                    <td>@Html.DisplayFor(model => model.MaSach)</td>
+                <tr>
+                    <td>Tên Sách:</td>
+                    <td>@Html.DisplayFor(model => model.TenSach)</td>
+                </tr>
+                <tr>
+                    <td>Thể Loại:</td>
+                    <td>@Html.DisplayFor(model => model.LoaiSach.TenLoaiSach)</td>
+                </tr>
+                <tr>
+                    <td>Tác Giả:</td>
+                    <td>@Html.DisplayFor(model => model.TacGia)</td>
+                </tr>
+                <tr>
+                    <td>Nhà Xuất Bản:</td>
+                    <td>@Html.DisplayFor(model => model.NhaXuatBan)</td>
+                </tr>
+                <tr>
+                    <td>Ngày Xuất Bản:</td>
+                    <td>@Html.DisplayFor(model => model.NgayXuatBan)</td>
+                </tr>
+                <tr>
+                    <td>Mô Tả của sách:</td>
+                    <td>@Html.DisplayFor(model => model.Mota)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions text-white d-sm-flex justify-content-center">
+            <input type="submit" value="Delete" class="btn btn-default btn-primary" /> |
+            @Html.ActionLink("Quay Lại", "Index")
+        </div>
+    }
+</div>

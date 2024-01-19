@@ -1,0 +1,79 @@
+﻿@model Project_63135935.Models.GioHang
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+<style>
+
+    .control-label {
+        text-align: center;
+    }
+
+    .btn-event a {
+        color: white;
+        padding: 6px 12px;
+        margin: 0px 10px;
+        background-color: #4e73df;
+    }
+</style>
+
+<div style="clear: both"></div>
+
+<div class="container-fluid" style="margin: 20px 0px">
+    <h3 class="text-center">Đặt Sách @ViewBag.idsach</h3>
+    <hr />
+    @using (Html.BeginForm("Create", "GioHangs_63135935", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group d-sm-block d-md-flex">
+                @Html.LabelFor(model => model.MaKH, "Tên Khách hàng", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("MaKH", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaKH, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-sm-block d-md-flex">
+                @Html.LabelFor(model => model.Sodt, "Số Điện Thoại", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Sodt, new { htmlAttributes = new { @class = "form-control"} })
+                    @Html.ValidationMessageFor(model => model.Sodt, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group d-sm-block d-md-flex">
+                @Html.LabelFor(model => model.Diachigiaohang, "Địa chỉ giao hàng", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Diachigiaohang, new { htmlAttributes = new { @class = "form-control"} })
+                    @Html.ValidationMessageFor(model => model.Diachigiaohang, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group1 d-sm-block d-md-flex">
+                @Html.LabelFor(model => model.Email, "Email đăng nhập", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+        </div>
+        <div class="form-group d-sm-block d-md-flex" style="justify-content: center; align-items: center; display: flex; margin: 20px 0px">
+            <div style="clear: both">
+                <input type="submit" value="Tiếp Tục" class="btn btn-default btn-primary" />
+            </div>
+            <div class="btn-event" style="clear: both">
+                @Html.ActionLink("Back to List", "Index", "Saches_63135935")
+            </div>
+        </div>
+    }
+
+</div>

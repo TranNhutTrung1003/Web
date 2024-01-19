@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c8d23587cdcd4a44ac4041a0eb0a22ad" Name="Diagram1">
+        <EntityTypeShape EntityType="Project_63135935Model.ChiTietGioHang" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63135935Model.Chucvu" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63135935Model.GioHang" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63135935Model.KhachHang" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63135935Model.LoaiSach" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63135935Model.NhanVien" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63135935Model.Sach" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63135935Model.sysdiagram" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="Project_63135935Model.FK__ChiTietGi__MaSac__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63135935Model.FK__ChiTietGio__MaDH__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63135935Model.FK__NhanVien__Ma_CV__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63135935Model.FK__GioHang__MaKH__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63135935Model.FK__GioHang__MaNV__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63135935Model.FK__Sach__MaLoaiSach__398D8EEE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

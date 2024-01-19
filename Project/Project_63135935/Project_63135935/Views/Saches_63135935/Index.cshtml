@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Project_63135935.Models.Sach>
+
+@{
+    ViewBag.Title = Model;
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+<section class="tg-sectionspace tg-haslayout">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="tg-sectionhead">
+                    <h2><span>People’s Choice</span>Books</h2>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+                @foreach (var item in Model)
+                {
+                    var link = "/Saches_63135935/Details/" + item.MaSach;
+
+                    <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12" style="height: 600px">
+                        <div class="tg-postbook">
+                            <figure class="tg-featureimg">
+                                <div class="tg-bookimg">
+                                    <div class="tg-frontcover"><a href="@link"><img src="~/Images/@item.AnhSach" alt="image description" style="height: 300px"></a></div>
+                                    <div class="tg-backcover"><a href="@link"><img src="~/Images/@item.AnhSach" alt="image description" style="height: 300px"></a></div>
+                                </div>
+                            </figure>
+                            <div class="tg-postbookcontent">
+                                <ul class="tg-bookscategories">
+                                    <li>@item.LoaiSach.TenLoaiSach</li>
+                                </ul>
+                                <div class="tg-booktitle">
+                                    <h3><a href="@link">@item.TenSach</a></h3>
+                                </div>
+                                <span class="tg-bookwriter">By: <a href="#">@item.TacGia</a></span>
+                                <span class="tg-stars"><span></span></span>
+                                <span class="tg-bookprice">
+                                    <ins>@item.DonGia</ins>
+                                </span>
+                                <a class="tg-btn tg-btnstyletwo" href="@Url.Action("Create", "GioHangs_63135935", new { tensach = item.TenSach, idsach = item.MaSach })">
+                                    <i class="fa fa-shopping-basket"></i>
+                                    <em>Mua hàng</em>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
+

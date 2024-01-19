@@ -1,0 +1,116 @@
+﻿@model IEnumerable<Project_63135935.Models.NhanVien>
+
+@{
+    ViewBag.Title = "Aboutus";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    var chucvu = "";
+}
+
+<!--************************************
+        Inner Banner Start
+*************************************-->
+<div class="tg-innerbanner tg-haslayout tg-parallax tg-bginnerbanner" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="/Images/bgparallax-05.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="tg-innerbannercontent">
+                    <h1>About Us</h1>
+                    <ol class="tg-breadcrumb">
+                        <li><a href="javascript:void(0);">home</a></li>
+                        <li class="tg-active">About Us</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--************************************
+        Inner Banner End
+*************************************-->
+<!--************************************
+        Main Start
+*************************************-->
+<main id="tg-main" class="tg-main tg-haslayout">
+    <!--************************************
+            Success Start
+    *************************************-->
+    <section class="tg-sectionspace tg-haslayout">
+        <div class="container">
+            <div class="row">
+                <div class="tg-successstory">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="tg-sectionhead">
+                            <h2><span>Our Pride Moments</span>Journey of Success</h2>
+                        </div>
+                        <div id="tg-successslider" class="tg-successslider tg-success owl-carousel">
+                            <div class="item">
+                                <figure>
+                                    <img src="~/Images/img-01.jpg" alt="image description">
+                                </figure>
+                                <div class="tg-successcontent">
+                                    <div class="tg-sectionhead">
+                                        <h2><span>June 27, 2017</span>First Step Toward Success</h2>
+                                    </div>
+                                    <div class="tg-description">
+                                        <p>Consectetur adipisicing elit sed do eiusmod tempor incididunt labore toloregna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcoiars nisiuip commodo consequat aute irure dolor in aprehenderit aveli esseati cillum dolor fugiat nulla pariatur cepteur sint occaecat cupidatat.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--************************************
+            Success End
+    *************************************-->
+    <!--************************************
+            Authors Start
+    *************************************-->
+    <section class="tg-sectionspace tg-haslayout">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="tg-sectionhead">
+                        <h2><span>Team Behind Book Library</span>Meet Our Professionals</h2>
+                    </div>
+                </div>
+                
+                <div id="tg-teamsslider" class="tg-authors tg-authorsslider tg-teamsmember owl-carousel">
+                    @foreach (var item in Model)
+                    {
+                        <div class="item tg-author tg-member">
+                            <figure><a href="javascript:void(0);"><img src="~/Images/employee.png" alt="image description"></a></figure>
+                            <div class="tg-authorcontent">
+                                <h2><a href="javascript:void(0);">@item.HoNV @item.TenNV</a></h2>
+                                <span>
+                                    @{if (item.Chucvu.tenchucvu == "admin")
+                                        { chucvu = "Người Quản Lí"; }
+                                        else
+                                        { chucvu = "Shipper"; }
+                                    }
+                                    @chucvu
+                                </span>
+                                <ul class="tg-socialicons">
+                                    <li class="tg-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="tg-twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
+                                    <li class="tg-linkedin"><a href="javascript:void(0);"><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--************************************
+            Authors End
+    *************************************-->
+</main>
+<!--************************************
+        Main End
+*************************************-->
+
+ 
+

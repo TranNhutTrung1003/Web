@@ -1,0 +1,101 @@
+﻿@model Project_63135935.Models.GioHang
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+
+    .btn-event a {
+        color: white;
+        padding: 6px 12px;
+        margin: 0px 10px;
+        background-color: #4e73df;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Chỉnh sửa đơn hàng</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.MaDH)
+
+    <div class="form-group d-sm-block d-md-flex">
+        @Html.LabelFor(model => model.MaKH, "Tên Khách hàng", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("MaKH", null, htmlAttributes: new { @class = "form-control", @readonly = "readonly" })
+            @Html.ValidationMessageFor(model => model.MaKH, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group d-sm-block d-md-flex">
+
+        @Html.LabelFor(model => model.MaNV, "Tên Shipper", htmlAttributes: new { @class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.DropDownList("MaNV", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MaNV, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group d-sm-block d-md-flex ">
+        @Html.LabelFor(model => model.Sodt, "Số Điện Thoại", htmlAttributes: new { @class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Sodt, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.Sodt, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group d-sm-block d-md-flex ">
+        @Html.LabelFor(model => model.Diachigiaohang, "Địa chỉ giao hàng", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Diachigiaohang, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.Diachigiaohang, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group d-sm-block d-md-flex">
+        @Html.LabelFor(model => model.Email, "Email đăng nhập", htmlAttributes: new { @class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group d-sm-block d-md-flex">
+        @Html.LabelFor(model => model.DuyetDH, "Thanh Toán", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                Rồi @Html.RadioButtonFor(model => model.DuyetDH, "True", new { @checked = "checked" }) &nbsp;
+                Chưa @Html.RadioButtonFor(model => model.DuyetDH, "False")
+                @Html.ValidationMessageFor(model => model.DuyetDH, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="form-group d-sm-block d-md-flex">
+        @Html.LabelFor(model => model.NgayDat, "Ngày đặt hàng", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NgayDat, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.NgayDat, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group d-sm-block d-md-flex" style="justify-content: center; align-items: center">
+        <div class="col-md-offset-2">
+            <input type="submit" value="Lưu" class="btn btn-default btn-primary" />
+        </div>
+        <div class="btn-event">
+            @Html.ActionLink("Quay Lại", "Index", "AdminChiTietGioHangs_63135935")
+        </div>
+    </div>
+</div>
+}
+
+

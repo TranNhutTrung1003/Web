@@ -1,0 +1,52 @@
+﻿@model Project_63135935.Models.ChiTietGioHang
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<style>
+
+    .control-label {
+        text-align: center;
+    }
+
+    .btn-event a {
+        color: white;
+        padding: 6px 12px;
+        margin: 0px 10px;
+        background-color: #4e73df;
+    }
+</style>
+
+<div style="clear: both"></div>
+
+@using (Html.BeginForm("Create", "ChiTietGioHangs_63135935", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal" style="margin: 20px 0px">
+        <h3 class="text-center">Đặt hàng @ViewBag.idsach</h3>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group d-sm-block d-md-flex">
+            @Html.LabelFor(model => model.SoLuong, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SoLuong, "Số Lượng", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoLuong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group d-sm-block d-md-flex" style="justify-content: center; align-items: center; display: flex; margin: 20px 0px">
+            <div >
+                <input type="submit" value="Đặt" class="btn btn-default" />
+            </div>
+            <div class="btn-event" style="clear: both">
+                @Html.ActionLink("Quay Lại Trang Chủ", "Index", "Saches_63135935")
+            </div>
+        </div>
+    </div>
+}
+
+

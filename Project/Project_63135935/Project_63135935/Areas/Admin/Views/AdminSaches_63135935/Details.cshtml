@@ -1,0 +1,60 @@
+﻿@model Project_63135935.Models.Sach
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<style>
+    p a {
+        color: white;
+        padding: 6px 12px;
+        margin: 0px 5px;
+        background-color: #4e73df;
+    }
+</style>
+
+<div class="container-fluid">
+    <h3 class="my-4">THÔNG TIN CHI TIẾT SẢN PHẨM</h3>
+
+    <div style="font-size:18px; align-items: center" class="d-sm-block d-md-flex">
+        <div class="p-3">
+            <img src="/Images/@Html.DisplayFor(model => model.AnhSach)" width="200" height="300" />
+        </div>
+        <div>
+            <table cellpadding="10">
+                <tr>
+                    <td>Mã Sách:</td>
+                    <td>@Html.DisplayFor(model => model.MaSach)</td>
+                <tr>
+                    <td>Tên Sách:</td>
+                    <td>@Html.DisplayFor(model => model.TenSach)</td>
+                </tr>
+                <tr>
+                    <td>Thể Loại:</td>
+                    <td>@Html.DisplayFor(model => model.LoaiSach.TenLoaiSach)</td>
+                </tr>
+                <tr>
+                    <td>Tác Giả:</td>
+                    <td>@Html.DisplayFor(model => model.TacGia)</td>
+                </tr>
+                <tr>
+                    <td>Nhà Xuất Bản:</td>
+                    <td>@Html.DisplayFor(model => model.NhaXuatBan)</td>
+                </tr>
+                <tr>
+                    <td>Ngày Xuất Bản:</td>
+                    <td>@Html.DisplayFor(model => model.NgayXuatBan)</td>
+                </tr>
+                <tr>
+                    <td>Mô Tả của sách:</td>
+                    <td>@Html.DisplayFor(model => model.Mota)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <p class="my-4 d-sm-flex justify-content-center">
+        @Html.ActionLink("Cập nhật", "Edit", new { id = Model.MaSach })
+        @Html.ActionLink("Quay lại", "Index")
+    </p>
+</div>

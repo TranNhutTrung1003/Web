@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Project_63135935.Models.ChiTietGioHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThanhTien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiaBan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sach.MaLoaiSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GioHang.MaKH)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThanhTien)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaBan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sach.MaLoaiSach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioHang.MaKH)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaCTGH }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaCTGH }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaCTGH })
+        </td>
+    </tr>
+}
+
+</table>

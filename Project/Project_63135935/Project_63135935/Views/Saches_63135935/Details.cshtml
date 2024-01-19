@@ -1,0 +1,76 @@
+﻿@model Project_63135935.Models.Sach
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+    <head>
+        <style>
+            .btn-event a {
+                color: white;
+                padding: 6px 12px;
+                margin: 0px 5px;
+                background-color: #4e73df;
+            }
+
+            tr td {
+                border: none !important;
+            }
+
+            tr td {
+                text-align: left !important;
+            }
+        </style>
+    </head>
+
+
+<body>
+    <div class="container my-5" style="clear:both; padding: 20px 0px">
+
+        <div style="font-size:18px; align-items: center" class="d-sm-block d-md-flex">
+            <div class="p-3 col-md-3">
+                <img src="/Images/@Html.DisplayFor(model => model.AnhSach)" style="max-height: 300px" />
+            </div>
+            <div>
+                <table cellpadding="10" style="border: none !important" class="col-xs-12 col-sm-12 col-md-9">
+                    <tr>
+                        <td>Tên Sách: </td>
+                        <td>@Html.DisplayFor(model => model.TenSach)</td>
+                    </tr>
+                    <tr>
+                        <td>Thể Loại: </td>
+                        <td>@Html.DisplayFor(model => model.LoaiSach.TenLoaiSach)</td>
+                    </tr>
+                    <tr>
+                        <td>Tên Tác Giả: </td>
+                        
+                        <td>@Html.DisplayFor(model => model.TacGia)</td>
+                    </tr>
+                    <tr>
+                        <td>Nhà Xuất Bản:</td>
+                        <td> @Html.DisplayFor(model => model.NhaXuatBan)</td>
+                    </tr>
+                    <tr>
+                        <td>Ngày Xuất Bản: </td>
+                        <td>@Html.DisplayFor(model => model.NgayXuatBan)</td>
+                    </tr>
+                    <tr>
+                        <td>Tóm Tắt:</td>
+                        <td> @Html.DisplayFor(model => model.Mota)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="my-4 d-block btn-event d-flex" style=" margin-top: 20px 0px;">
+            <a class="tg-btn tg-btnstyletwo" href="@Url.Action("Create", "GioHangs_63135935", new { tensach = Model.TenSach, idsach = Model.MaSach })">
+                <i class="fa fa-shopping-basket"></i>
+                <em>Mua Hàng</em>
+            </a>
+            <a class="tg-btn tg-btnstyletwo" href="@Url.Action("index", "Saches_63135935")">
+                <em>Quay Lại</em>
+            </a>
+        </div>
+    </div>
+</body>

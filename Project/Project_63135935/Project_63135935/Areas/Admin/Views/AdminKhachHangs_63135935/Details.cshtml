@@ -1,0 +1,72 @@
+﻿@model Project_63135935.Models.KhachHang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var gtinh = "";
+}
+
+<style>
+    p a {
+        color: white;
+        padding: 6px 12px;
+        margin: 0px 5px;
+        background-color: #4e73df;
+    }
+</style>
+
+<div class="container-fluid">
+    <h3 class="my-4">THÔNG TIN CHI TIẾT KHÁCH HÀNG</h3>
+
+    <div style="font-size:18px; align-items: center" class="d-sm-block d-md-flex">
+        <div>
+            <table cellpadding="10">
+                <tr>
+                    <td>Mã Khách Hàng:</td>
+                    <td>@Html.DisplayFor(model => model.MaKH)</td>
+                <tr>
+                    <td>Họ Khách Hàng:</td>
+                    <td>@Html.DisplayFor(model => model.HoKH)</td>
+                </tr>
+                <tr>
+                    <td>Tên Khách Hàng:</td>
+                    <td>@Html.DisplayFor(model => model.TenKH)</td>
+                </tr>
+                <tr>
+                    <td>Giới tính:</td>
+                    <td>
+                        @{if (Model.GioiTinh == true)
+                            { gtinh = "Nam"; }
+                            else
+                            { gtinh = "Nữ"; }
+                        }
+                        @gtinh
+                    </td>
+                </tr>
+                <tr>
+                    <td>Số Điện Thoại:</td>
+                    <td>@Html.DisplayFor(model => model.SoDT)</td>
+                </tr>
+                <tr>
+                    <td>Ngày Sinh:</td>
+                    <td>@Html.DisplayFor(model => model.NgaySinh)</td>
+                </tr>
+                <tr>
+                    <td>Địa Chỉ:</td>
+                    <td>@Html.DisplayFor(model => model.DiaChi)</td>
+                </tr>
+                <tr>
+                    <td>Email Đăng Nhập:</td>
+                    <td>@Html.DisplayFor(model => model.Email)</td>
+                </tr>
+                <tr>
+                    <td>Mật Khẩu:</td>
+                    <td>@Html.DisplayFor(model => model.Matkhau)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <p class="my-4 d-sm-flex justify-content-center">
+        @Html.ActionLink("Quay lại", "Index")
+    </p>
+</div>
