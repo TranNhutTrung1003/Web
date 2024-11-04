@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #001e4d !important;
+}
+
+.container{
+    border-radius: 10px;
+    margin-top: 100px;
+    background-color: #fff;
+    color: #000000;
+    padding: 25px 20px !important;
+}
+
+.app-title{
+    font-weight: bolder;
+    font-size: 18px;
+    text-transform: capitalize;
+    border-bottom: 1px solid black;
+}
+
+.app-question{
+    font-size: 13px;
+    font-weight: bolder;
+    margin: 15px 0px 10px 0px;
+}
+
+.app-answers{
+    width: 100%;
+    list-style-type: none;
+    padding: 0px;
+}
+
+.app-item-answer{
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.btn{
+    width: 100%;
+    font-size: 14px !important;
+    margin: 10px auto;
+}
+
+.btn-next button{
+    text-transform: capitalize;
+    padding: 5px 40px !important;
+    background-color: #001e4d !important;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.app-item-answer:hover{
+    background-color: #000000;
+    color: #fff;
+}
+
+.app-item-answer:last-child{
+    margin-bottom: 0px;
+}

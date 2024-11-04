@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Varela+Round&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body, html{
+    background-color: antiquewhite !important;
+}
+
+.spotify-header{
+    background-color: black;
+}
+
+.spotify-header .nav-link{
+    font-weight: 300;
+}
+
+.spotify-header .navbar-brand img{
+    height: 35px;
+}
+
+.spotify-header .nav-link, .spotify-header .navbar-brand{
+    color: white;
+    text-transform: capitalize;
+}
+
+.spotify-header .nav-link:hover, .navbar-brand:hover{
+    color: white !important;
+}
+
+.spotify-bottom{
+    display: flex;
+    position: sticky;
+    background-color: black;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    flex-direction: column;
+}
+
+.spotify-content{
+    min-height: 71vh;
+    background: url("../Images/bg.jpg");
+    color: white;
+    width: 70%;
+    margin: 20px auto;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-family: 'Varela Round', sans-serif;
+    background-size: cover;
+}
+
+.song-title{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.spotify-bottom input{
+    width: 80%;
+    cursor: pointer;
+}
+
+.spotify-icons i{
+    font-size: 30px;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.song-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.song-list .item-song{
+    background-color: white;
+    color: black;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.song-list .item-song:last-child{
+    margin-bottom: 0px;
+}
+
+.song-list .item-song img{
+    height: 30px;
+    border-radius: 15px;
+}
+
+.song-name{
+    font-size: 12px;
+}
+
+.song-length{
+    font-size: 12px;
+}
+
+.song-length i{
+    cursor: pointer;
+}
+
+.song-info{
+    position: absolute;
+    left: 10vw;
+    color: white;
+}
+
+.song-info img{
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
